@@ -10,7 +10,7 @@ RUN chmod +x ./install.sh && ./install.sh
 RUN rm ./install.sh -rf
 
 
-FROM --platform=$BUILDPLATFORM ghcr.io/graalvm/jdk-community:23 AS prerun
+FROM --platform=$BUILDPLATFORM ghcr.io/graalvm/jdk-community:24 AS prerun
 
 WORKDIR /paper
 
@@ -18,7 +18,7 @@ COPY --from=paper /paper/ /paper
 
 RUN java -jar paperclip.jar --nogui
 
-FROM --platform=$BUILDPLATFORM ghcr.io/graalvm/jdk-community:23 AS run
+FROM --platform=$BUILDPLATFORM ghcr.io/graalvm/jdk-community:24 AS run
 
 WORKDIR /paper
 
